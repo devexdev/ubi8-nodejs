@@ -5,6 +5,7 @@ RUN yum upgrade -y \
     && yum install -y nodejs \
     && useradd admin \
     && yum clean -y all
+    && chown -R admin:admin /usr/local/lib/node_modules
 
 USER admin
 WORKDIR /home/admin
