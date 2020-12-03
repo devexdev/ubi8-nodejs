@@ -1,9 +1,9 @@
-FROM registry.access.redhat.com/ubi8/nodejs-14
+FROM registry.access.redhat.com/ubi7/ubi
 
-USER root
 RUN yum upgrade -y \
-    && yum install -y zip unzip \
-    && useradd admin -g root \
+    && curl -sL https://rpm.nodesource.com/setup_14.x | bash - \
+    && yum install -y nodejs zip unzip \
+    && useradd admin \
     && yum clean -y all
 
 USER admin
